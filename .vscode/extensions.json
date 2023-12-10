@@ -1,3 +1,3 @@
 {
-	"recommendations": ["ms-vscode.cmake-tools"]
+	"recommendations": ["ms-vscode.cmake-tools", "ms-vsliveshare.vsliveshare"]
 }
