@@ -1,3 +1,4 @@
+import 'package:ease_neura/widget_book/booking_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppointmentScreen extends StatelessWidget {
@@ -127,69 +128,81 @@ class Hospital extends StatelessWidget {
 class Doctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 280,
-      height: 95,
-      margin: EdgeInsets.only(left: 0, top: 15, right: 0),
-      child: Stack(
-        children: [
-          Positioned(
-            left: 0,
-            top: 0,
-            child: Container(
-              width: 92.3,
-              height: 95,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/doctor.png'),
-                  fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        // Navigate to the desired page
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                BookingScreen(), // Replace YourDestinationPage with the actual destination page
+          ),
+        );
+      },
+      child: Container(
+        width: 280,
+        height: 95,
+        margin: EdgeInsets.only(left: 0, top: 15, right: 0),
+        child: Stack(
+          children: [
+            Positioned(
+              left: 0,
+              top: 0,
+              child: Container(
+                width: 92.3,
+                height: 95,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/doctor.png'),
+                    fit: BoxFit.cover,
+                  ),
+                  border: Border.all(color: Colors.black, width: 1.41667),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                border: Border.all(color: Colors.black, width: 1.41667),
-                borderRadius: BorderRadius.circular(10),
               ),
             ),
-          ),
-          Positioned(
-            left: 100.27,
-            top: 16.67,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Prof. Rina, Ph.D.',
-                  style: TextStyle(
-                    fontFamily: 'Nunito',
-                    fontStyle: FontStyle.normal,
-                    fontWeight: FontWeight.w400,
-                    fontSize: 17,
-                    color: Colors.black,
+            Positioned(
+              left: 100.27,
+              top: 16.67,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Prof. Rina, Ph.D.',
+                    style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 17,
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 5),
-                  width: 86,
-                  height: 20,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(5.76786),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Book',
-                      style: TextStyle(
-                        fontFamily: 'Nunito',
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 13.8316,
-                        color: Color.fromARGB(255, 255, 255, 255),
+                  Container(
+                    margin: EdgeInsets.only(top: 5),
+                    width: 86,
+                    height: 20,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(5.76786),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Book',
+                        style: TextStyle(
+                          fontFamily: 'Nunito',
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 13.8316,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
