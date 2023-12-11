@@ -4,6 +4,7 @@ import 'package:ease_neura/widget_home/maintenance.dart';
 import 'package:ease_neura/widget_home/history_screen.dart';
 import 'package:ease_neura/widget_home/message_screen.dart';
 import 'package:ease_neura/widget_home/profile_screen.dart';
+import 'package:ease_neura/widget_home/thread_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -264,7 +265,7 @@ class Threads extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Maintenance(),
+              builder: (context) => const ThreadsScreen(),
             ),
           );
         },
