@@ -183,6 +183,8 @@ Widget buildBox1(BuildContext context) {
   );
 }
 
+
+
 Widget buildBox2() {
   return InkWell(
     child: Stack(
