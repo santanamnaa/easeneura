@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class ConsultationScreen extends StatelessWidget {
   const ConsultationScreen({Key? key}) : super(key: key);
@@ -67,7 +65,6 @@ class ConsultationScreen extends StatelessWidget {
           SizedBox(height: 20), // Add some spacing
 
           // Add a new widget for the API connection box
-          ApiConnectionBoxtoArticles(),
 
           // Include the articles1 widget
         ],
@@ -325,30 +322,11 @@ class CustomTabBar extends StatelessWidget {
 }
 
 class ApiConnectionBoxtoArticles extends StatelessWidget {
-  Future<List<String>> fetchWebsites() async {
-    final response = await http.get(
-        Uri.parse('https://www.mentalhelp.net/self-esteem/why-its-important/'));
-
-    if (response.statusCode == 200) {
-      // If the API call is successful, parse the JSON response
-      final List<dynamic> data = json.decode(response.body);
-
-      // Convert data to List<String> (e.g., take the title)
-      List<String> titles =
-          data.map((item) => item['title'].toString()).toList();
-
-      return titles;
-    } else {
-      // If the API call fails, throw an exception or return an empty list
-      throw Exception('Failed to load websites');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: double.infinity,
+      height: 300,
       decoration: BoxDecoration(
         color: const Color.fromARGB(255, 255, 255, 255),
         borderRadius: BorderRadius.circular(10),
@@ -360,26 +338,40 @@ class ApiConnectionBoxtoArticles extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(
+            'Explore Mental Health Articles',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
           SizedBox(height: 20),
-          FutureBuilder<List<String>>(
-            future: fetchWebsites(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return CircularProgressIndicator();
-              } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
-              } else if (snapshot.data == null || snapshot.data!.isEmpty) {
-                return Text('No data available');
-              } else {
-                // Tampilkan daftar website di sini
-                List<String> websites = snapshot.data!;
-                return Column(
-                  children: websites.map((website) => Text(website)).toList(),
-                );
-              }
+          ElevatedButton(
+            onPressed: () {
+              // Navigate to a web page with mental health articles
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MentalHealthWebView(),
+                ),
+              );
             },
+            child: Text('Open Articles'),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class MentalHealthWebView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('Building MentalHealthWebView');
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Mental Health Articles'),
       ),
     );
   }
