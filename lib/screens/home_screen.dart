@@ -1,6 +1,9 @@
 import 'dart:math';
 import 'package:ease_neura/widget_home/consultation_screen.dart';
 import 'package:ease_neura/widget_home/maintenance.dart';
+import 'package:ease_neura/widget_home/history_screen.dart';
+import 'package:ease_neura/widget_home/message_screen.dart';
+import 'package:ease_neura/widget_home/profile_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -763,22 +766,109 @@ class MiddleView extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _pages = [
+    FirstView(),
+    HistoryScreen(),
+    MessageScreen(),
+    ProfileScreen(),
+  ];
+
+  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Stack(
         children: [
-          FirstView(),
+          _pages[_selectedIndex],
           Positioned(
-            top: 115,
+            top: 120,
             bottom: 0,
             left: 0,
             right: 0,
             child: SingleChildScrollView(
               child: MiddleView(),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        height: 130,
+        decoration: BoxDecoration(
+          color: Colors.black,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _buildNavItem(0, 'Home', Icons.home),
+              _buildNavItem(1, 'History', Icons.history),
+              _buildNavItem(2, 'Message', Icons.message),
+              _buildNavItem(3, 'Profile', Icons.person),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int index, String label, IconData iconData) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _selectedIndex = index;
+        });
+
+        // Navigate to the corresponding page
+        switch (index) {
+          case 1:
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HistoryScreen()),
+            );
+            break;
+          case 2:
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MessageScreen()),
+            );
+            break;
+          case 3:
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ProfileScreen()),
+            );
+            break;
+        }
+      },
+      child: Column(
+        children: [
+          Icon(
+            iconData,
+            size: 24,
+            color: _selectedIndex == index ? Colors.white : Colors.grey,
+          ),
+          SizedBox(height: 5),
+          Text(
+            label,
+            style: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.w600,
+              fontSize: 9.20952,
+              color: _selectedIndex == index ? Colors.white : Colors.grey,
             ),
           ),
         ],
