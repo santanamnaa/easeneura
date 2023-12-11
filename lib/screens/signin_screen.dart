@@ -87,14 +87,14 @@ class SigninForm extends StatelessWidget {
             validator: (value) {
               return null;
               // Add validation logic if needed
-            },
+              }
           ),
           const SizedBox(height: 15),
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               AnimatedSignupButton(
-                text: "Sign Up",
+                text: "Sign In",
                 backgroundColor: Colors.black,
                 textColor: Colors.white,
                 onPressed: () => navigateToHome(context),
@@ -102,6 +102,14 @@ class SigninForm extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               const DividerWithText(text: "or"),
+              const SizedBox(height: 8),
+              AnimatedSignupButton(
+                text: "Sign Up",
+                backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                textColor: const Color.fromARGB(255, 0, 0, 0),
+                onPressed: () => navigateToHome(context),
+                buttonWidth: 200,
+              ),
               const SizedBox(height: 8),
               AnimatedSignupButton(
                 text: "Sign Up with Google",

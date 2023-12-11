@@ -790,7 +790,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           _pages[_selectedIndex],
           Positioned(
-            top: 120,
+            top: 115,
             bottom: 0,
             left: 0,
             right: 0,
@@ -801,7 +801,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       bottomNavigationBar: Container(
-        height: 130,
+        height: 135,
         decoration: BoxDecoration(
           color: Colors.black,
           borderRadius: BorderRadius.only(

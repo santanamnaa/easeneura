@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ease_neura/widget_consultation/appointment_screen.dart';
 
 class ConsultationScreen extends StatelessWidget {
   const ConsultationScreen({Key? key}) : super(key: key);
@@ -125,7 +126,7 @@ class ThreeBoxes extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            buildBox1(),
+            buildBox1(context),
             const SizedBox(width: 10),
             buildBox2(),
             const SizedBox(width: 10),
@@ -138,8 +139,15 @@ class ThreeBoxes extends StatelessWidget {
   }
 }
 
-Widget buildBox1() {
-  return InkWell(
+Widget buildBox1(BuildContext context) {
+  return GestureDetector(
+    onTap: () {
+      // Navigate to AppointmentScreen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AppointmentScreen()),
+      );
+    },
     child: Stack(
       children: [
         Container(
