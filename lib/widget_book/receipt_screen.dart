@@ -15,9 +15,10 @@ class ReceiptScreen extends StatelessWidget {
       body: Center(
         child: Container(
           width: 360,
-          height: 800, // Atur lebar Container sesuai kebutuhan
+          height: 500, // Atur lebar Container sesuai kebutuhan
           padding: EdgeInsets.all(16.0),
           decoration: BoxDecoration(
+
             color: Colors.white, // Set warna latar belakang box
             borderRadius:
                 BorderRadius.circular(20.0), // Tambahkan border radius
