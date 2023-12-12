@@ -1,8 +1,8 @@
 // Import statements
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class Volunteers extends StatelessWidget {
+  const Volunteers({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               SizedBox(height: 2),
               Text(
-                'Profile',
+                'Volunteer',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 17,
@@ -52,7 +52,7 @@ class ProfileScreen extends StatelessWidget {
 
   Widget buildBody(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.all(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -67,13 +67,13 @@ class ProfileScreen extends StatelessWidget {
   Widget buildImageBox() {
     return Container(
       width: double.infinity, // Lebar box penuh
-      height: 800, // Ganti sesuai kebutuhan tinggi box
+      height: 660, // Ganti sesuai kebutuhan tinggi box
       decoration: BoxDecoration(
         color: Colors.grey, // Ganti warna sesuai keinginan
         borderRadius: BorderRadius.circular(0),
       ),
       child: Image.asset(
-        'assets/images/page_p2.png', // Path dari gambar asset
+        'assets/images/page_v.png', // Path dari gambar asset
         fit: BoxFit.cover, // Sesuaikan dengan kebutuhan Anda
       ),
     );

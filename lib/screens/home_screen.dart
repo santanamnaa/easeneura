@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:ease_neura/widget_home/ai_helper.dart';
 import 'package:ease_neura/widget_home/consultation_screen.dart';
 import 'package:ease_neura/widget_home/maintenance.dart';
 import 'package:ease_neura/widget_home/history_screen.dart';
@@ -6,6 +7,10 @@ import 'package:ease_neura/widget_home/message_screen.dart';
 import 'package:ease_neura/widget_home/profile_screen.dart';
 import 'package:ease_neura/widget_home/thread_screen.dart';
 import 'package:ease_neura/widget_home/customer_services.dart';
+import 'package:ease_neura/widget_home/breathe_assistance_screen.dart';
+import 'package:ease_neura/widget_home/mood_tracker_screen.dart';
+import 'package:ease_neura/widget_home/volunteer_screen.dart';
+import 'package:ease_neura/widget_home/ai_helper.dart';
 
 import 'package:flutter/material.dart';
 
@@ -43,7 +48,7 @@ class Profile extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Maintenance(),
+              builder: (context) => const ProfileScreen(),
             ),
           );
         },
@@ -314,15 +319,6 @@ class CurrentHeartBeat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       child: InkWell(
-        onTap: () {
-          // Navigasi ke halaman Maintenance
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const Maintenance(),
-            ),
-          );
-        },
         child: Stack(
           children: [
             Container(
@@ -363,7 +359,7 @@ class AiHelper extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Maintenance(),
+              builder: (context) => AIHelperr(),
             ),
           );
         },
@@ -471,7 +467,7 @@ class Volunteer extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const Maintenance(),
+            builder: (context) => const Volunteers(),
           ),
         );
       },
@@ -530,7 +526,7 @@ class MoodTracker extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const Maintenance(),
+              builder: (context) => const MoodTrackers(),
             ),
           );
         },
@@ -582,7 +578,7 @@ class BreatheAssistant extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const Maintenance(),
+            builder: (context) => const BreatheAssistance(),
           ),
         );
       },
@@ -682,85 +678,91 @@ class CustomerService extends StatelessWidget {
 }
 
 class FirstView extends StatelessWidget {
-  const FirstView({super.key});
+  const FirstView({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(
-      children: [
-        Profile(),
-        Calendar(),
-        Welcome(),
-      ],
+    return Container(
+      color: Colors.white, // Set the background color here
+      child: Stack(
+        children: [
+          Profile(),
+          Calendar(),
+          Welcome(),
+        ],
+      ),
     );
   }
 }
 
 class MiddleView extends StatelessWidget {
-  const MiddleView({super.key});
+  const MiddleView({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.all(16.0),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              height: 0,
-            ),
-            SearchBar(),
+    return Container(
+      color: Colors.white, // Set the background color here
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 0,
+              ),
+              SearchBar(),
 
-            // space between search bar to the next content
-            SizedBox(
-              height: 20,
-            ),
-            Stack(
-              children: [
-                Consultation(),
-                Threads(right: 0),
-              ],
-            ),
-            // space between consultation and threads to the next content
-            SizedBox(
-              height: 20,
-            ),
-            Stack(
-              children: [
-                CurrentHeartBeat(),
-                AiHelper(right: 0),
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            NewArtikel(),
-            // space between current heartbeat and ai helper to the next content
-            SizedBox(
-              height: 20,
-            ),
-            Stack(
-              children: [
-                Volunteer(),
-                MoodTracker(right: 0),
-              ],
-            ),
+              // space between search bar to the next content
+              SizedBox(
+                height: 20,
+              ),
+              Stack(
+                children: [
+                  Consultation(),
+                  Threads(right: 0),
+                ],
+              ),
+              // space between consultation and threads to the next content
+              SizedBox(
+                height: 20,
+              ),
+              Stack(
+                children: [
+                  CurrentHeartBeat(),
+                  AiHelper(right: 0),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              NewArtikel(),
+              // space between current heartbeat and ai helper to the next content
+              SizedBox(
+                height: 20,
+              ),
+              Stack(
+                children: [
+                  Volunteer(),
+                  MoodTracker(right: 0),
+                ],
+              ),
 
-            SizedBox(
-              height: 20,
-            ),
-            Stack(
-              children: [
-                BreatheAssistant(),
-                CustomerService(right: 0),
-              ],
-            ),
+              SizedBox(
+                height: 20,
+              ),
+              Stack(
+                children: [
+                  BreatheAssistant(),
+                  CustomerService(right: 0),
+                ],
+              ),
 
-            SizedBox(
-              height: 20,
-            ),
-          ],
+              SizedBox(
+                height: 20,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -787,6 +789,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // Set the background color of the scaffold
       body: Stack(
         children: [
           _pages[_selectedIndex],
