@@ -126,16 +126,19 @@ class Hospital extends StatelessWidget {
 }
 
 class Doctor extends StatelessWidget {
+  final String doctorName;
+
+  Doctor({required this.doctorName});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // Navigate to the desired page
+        // Navigate to the desired page and pass the information
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) =>
-                BookingScreen(), // Replace YourDestinationPage with the actual destination page
+            builder: (context) => BookingScreen(),
           ),
         );
       },
@@ -149,11 +152,11 @@ class Doctor extends StatelessWidget {
               left: 0,
               top: 0,
               child: Container(
-                width: 92.3,
-                height: 95,
+                width: 80.3,
+                height: 80,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage('assets/images/doctor.png'),
+                    image: AssetImage('assets/images/doctor2.png'),
                     fit: BoxFit.cover,
                   ),
                   border: Border.all(color: Colors.black, width: 1.41667),
@@ -168,7 +171,7 @@ class Doctor extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Prof. Rina, Ph.D.',
+                    doctorName,
                     style: TextStyle(
                       fontFamily: 'Nunito',
                       fontStyle: FontStyle.normal,
@@ -299,35 +302,75 @@ class MiddleView extends StatelessWidget {
             buildBody(context),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [Doctor(), CustomIcon()],
+              children: [
+                Doctor(
+                  doctorName: 'Prof. Rina, Ph.D.',
+                ),
+                CustomIcon()
+              ],
             ),
           ],
         ),

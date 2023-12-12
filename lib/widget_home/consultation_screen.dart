@@ -64,6 +64,7 @@ class ConsultationScreen extends StatelessWidget {
           SizedBox(height: 20), // Add some spacing
           CustomTabBar(), // Include the CustomTabBar here
           SizedBox(height: 20), // Add some spacing
+          ApiConnectionBoxtoArticles(),
 
           // Add a new widget for the API connection box
 
@@ -182,8 +183,6 @@ Widget buildBox1(BuildContext context) {
     ),
   );
 }
-
-
 
 Widget buildBox2() {
   return InkWell(
@@ -334,54 +333,35 @@ class CustomTabBar extends StatelessWidget {
 class ApiConnectionBoxtoArticles extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 300,
-      decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 255, 255, 255),
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Colors.black.withOpacity(1),
-          width: 1,
+    return SingleChildScrollView(
+      child: Container(
+        width: double.infinity,
+        height: 320,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 255, 255, 255),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.black.withOpacity(1),
+            width: 1,
+          ),
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            'Explore Mental Health Articles',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ConstrainedBox(
+              constraints: BoxConstraints.tightFor(height: 300),
+              child: Image.asset(
+                // Use the image to temporary
+                'assets/images/articles2.png',
+                fit: BoxFit.cover,
+                width: 200,
+                height: 50,
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
-              // Navigate to a web page with mental health articles
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MentalHealthWebView(),
-                ),
-              );
-            },
-            child: Text('Open Articles'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class MentalHealthWebView extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    print('Building MentalHealthWebView');
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Mental Health Articles'),
+            // Add more widgets if needed
+          ],
+        ),
       ),
     );
   }
