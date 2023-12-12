@@ -216,7 +216,7 @@ class _AppointmentDetailsState extends State<AppointmentDetails> {
                           setState(() {
                             isLoading = true;
                           });
-                          Future.delayed(Duration(seconds: 2), () {
+                          Future.delayed(Duration(seconds: 1), () {
                             setState(() {
                               isLoading = false;
                             });
