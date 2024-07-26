@@ -71,7 +71,3 @@ Contributions are what make the open-source community such an amazing place to l
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
-Feel free to customize this README to better fit the specifics of your project!
