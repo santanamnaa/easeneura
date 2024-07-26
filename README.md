@@ -6,7 +6,7 @@ EaseNeura is a Flutter application designed to help individuals seeking consulta
 ## Design
 
 The design of the EaseNeura project can be viewed here:
-https://github.com/santanamnaa/easeneura/blob/main/ease-neura-app-design%20.png
+![alt_text](https://github.com/santanamnaa/easeneura/blob/main/ease-neura-app-design%20.png)
 
 ## Getting Started
 
