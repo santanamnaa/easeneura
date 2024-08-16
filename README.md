@@ -1,4 +1,4 @@
-# EaseNeura
+# e a s e N e u r a
 
 EaseNeura is a Flutter application designed to help individuals seeking consultation with mental health specialists and to support users in managing their own mental health.
 ![alt_text](https://github.com/santanamnaa/easeneura/blob/main/EaseNeura.png)
